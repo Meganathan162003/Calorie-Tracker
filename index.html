@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>kcal – Calorie Tracker</title>
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22lgBg%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23f7ad2b%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23e5481f%22/%3E%3C/linearGradient%3E%3ClinearGradient%20id%3D%22lgCore%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23f7a12b%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23e5481f%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2247%22%20fill%3D%22url%28%23lgBg%29%22/%3E%0A%3Crect%20x%3D%2226%22%20y%3D%2214%22%20width%3D%2248%22%20height%3D%2227%22%20rx%3D%228%22%20fill%3D%22%23fff%22/%3E%0A%3Cpath%20d%3D%22M34%2034a16%2016%200%200%201%2032%200%22%20fill%3D%22none%22%20stroke%3D%22%23ef7a1c%22%20stroke-width%3D%222.2%22%20stroke-linecap%3D%22round%22/%3E%0A%3Cpath%20d%3D%22M36%2025.5l1.4%202M43%2022.5l.7%202.3M50%2021.6v2.4M57%2022.5l-.7%202.3M64%2025.5l-1.4%202%22%20stroke%3D%22%23ef7a1c%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22/%3E%0A%3Cpath%20d%3D%22M50%2034l-5-8%22%20stroke%3D%22%23e8501f%22%20stroke-width%3D%222.4%22%20stroke-linecap%3D%22round%22/%3E%0A%3Cpath%20d%3D%22M51%2036c4%208%2015%2016%2015%2030%200%2013-8%2024-16%2024s-16-11-16-24c0-9%205-14%209-20%201%204%203%205%205%204%202-3%202-8-1-14z%22%20fill%3D%22%23fff%22/%3E%0A%3Cpath%20d%3D%22M50%2060c5%206%208%2011%208%2017%200%205-3%209-8%209s-8-4-8-9c0-6%204-11%208-17z%22%20fill%3D%22url%28%23lgCore%29%22/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#1f9d55">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="kcal">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="logo" viewBox="0 0 100 100">
+      <defs>
+        <linearGradient id="lgBg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#f7ad2b" />
+          <stop offset="1" stop-color="#e5481f" />
+        </linearGradient>
+        <linearGradient id="lgCore" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#f7a12b" />
+          <stop offset="1" stop-color="#e5481f" />
+        </linearGradient>
+      </defs>
+      <circle cx="50" cy="50" r="47" fill="url(#lgBg)" />
+      <rect x="26" y="14" width="48" height="27" rx="8" fill="#fff" />
+      <path d="M34 34a16 16 0 0 1 32 0" fill="none" stroke="#ef7a1c" stroke-width="2.2" stroke-linecap="round" />
+      <path d="M36 25.5l1.4 2M43 22.5l.7 2.3M50 21.6v2.4M57 22.5l-.7 2.3M64 25.5l-1.4 2" stroke="#ef7a1c"
+        stroke-width="1.6" stroke-linecap="round" />
+      <path d="M50 34l-5-8" stroke="#e8501f" stroke-width="2.4" stroke-linecap="round" />
+      <path d="M51 36c4 8 15 16 15 30 0 13-8 24-16 24s-16-11-16-24c0-9 5-14 9-20 1 4 3 5 5 4 2-3 2-8-1-14z"
+        fill="#fff" />
+      <path d="M50 60c5 6 8 11 8 17 0 5-3 9-8 9s-8-4-8-9c0-6 4-11 8-17z" fill="url(#lgCore)" />
+    </symbol>
+  </svg>
+  <nav id="nav" aria-label="Main navigation">
+    <div class="brand"><svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+        <use href="#logo" />
+      </svg><b>kcal</b></div>
+    <button data-go="home"><span class="ic" aria-hidden="true">🏠</span><span>Home</span></button>
+    <button data-go="menu"><span class="ic" aria-hidden="true">📖</span><span>Menu</span></button>
+    <button data-go="food"><span class="ic" aria-hidden="true">🍽️</span><span>Food</span></button>
+    <button data-go="history"><span class="ic" aria-hidden="true">📊</span><span>History</span></button>
+    <button data-go="settings"><span class="ic" aria-hidden="true">⚙️</span><span>Settings</span></button>
+  </nav>
+
+  <main>
+    <header class="top">
+      <div class="ttl"><svg class="logo mob" viewBox="0 0 100 100" role="img" aria-label="kcal logo">
+          <use href="#logo" />
+        </svg>
+        <h1 id="title">Home</h1>
+      </div>
+      <button id="themeBtn" class="icon-btn" aria-label="Toggle dark mode"></button>
+    </header>
+
+    <!-- HOME -->
+    <section id="home" class="view" aria-labelledby="title">
+      <div class="card hero">
+        <div class="ringwrap">
+          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true">
+            <circle class="rt" cx="60" cy="60" r="52" />
+            <circle id="ringFg" class="rf" cx="60" cy="60" r="52" />
+          </svg>
+          <div class="ringtxt"><b id="ringVal">0</b><small>kcal eaten</small></div>
+        </div>
+        <div class="hstats">
+          <p id="todayDate" class="muted"></p>
+          <div class="stat"><small>Goal</small><b id="sGoal"></b></div>
+          <div class="stat"><small>Eaten</small><b id="sEaten"></b></div>
+          <div class="stat"><small id="sLeftLbl">Remaining</small><b id="sLeft"></b></div>
+        </div>
+      </div>
+      <p id="motive" class="card motive" role="status"></p>
+      <div class="card">
+        <h2>⚡ Quick add</h2>
+        <form id="quickForm" class="qform" novalidate>
+          <label class="sr" for="qName">Food name</label><input id="qName" maxlength="60" autocomplete="off"
+            placeholder="Food name">
+          <label class="sr" for="qCal">Calories</label><input id="qCal" type="number" min="0" step="any"
+            inputmode="decimal" placeholder="kcal">
+          <label class="sr" for="qP">Protein in grams</label><input id="qP" type="number" min="0" step="any"
+            inputmode="decimal" placeholder="Protein g">
+          <button class="btn small">Add</button>
+          <div class="qopts">
+            <label class="chk"><input type="checkbox" id="qSave" checked> Save as a quick-add button</label>
+          </div>
+        </form>
+        <p id="qErr" class="err" role="alert"></p>
+        <div id="quickGrid" class="qgrid"></div>
+        <p id="quickEmpty" class="empty-state">No saved foods yet. Add a food above with “Save” ticked and it stays here
+          for future use.</p>
+      </div>
+      <div class="card">
+        <h2>Today's progress</h2>
+        <div class="prow"><span>🥩 Protein</span><span id="protTxt" class="muted"></span></div>
+        <div class="bar"><i id="protBar" class="prot"></i></div>
+        <div class="prow"><span>🔥 Calories</span><span id="calTxt" class="muted"></span></div>
+        <div class="bar"><i id="calBar"></i></div>
+      </div>
+      <div class="card">
+        <h2>Today's food <span id="homeTotal" class="muted"></span></h2>
+        <div id="homeTable" class="tablewrap" hidden>
+          <table class="ftable">
+            <thead>
+              <tr>
+                <th>Food</th>
+                <th class="num">Calories</th>
+                <th><span class="sr">Actions</span></th>
+              </tr>
+            </thead>
+            <tbody id="homeBody"></tbody>
+            <tfoot id="homeFoot"></tfoot>
+          </table>
+        </div>
+        <p id="homeEmpty" class="empty-state">Nothing logged yet. Use Quick add above to start.</p>
+      </div>
+    </section>
+
+    <!-- FOOD -->
+    <section id="food" class="view" hidden aria-labelledby="title">
+      <div class="datenav">
+        <button class="icon-btn" data-d="-1" aria-label="Previous day">‹</button>
+        <input type="date" data-sel aria-label="Selected date">
+        <button class="icon-btn" data-d="1" aria-label="Next day">›</button>
+        <button class="chip" data-d="0">Today</button>
+      </div>
+      <div class="card">
+        <h2 id="formTitle">Add food</h2>
+        <form id="foodForm" novalidate>
+          <input type="hidden" id="fId">
+          <label for="fName">Food name</label>
+          <input id="fName" maxlength="60" autocomplete="off" placeholder="e.g. Masala dosa">
+          <div class="grid2">
+            <div><label for="fCal">Calories (kcal)</label><input id="fCal" type="number" min="0" step="any"
+                inputmode="decimal"></div>
+            <div><label for="fP">Protein (g)</label><input id="fP" type="number" min="0" step="any" inputmode="decimal"
+                placeholder="0"></div>
+          </div>
+          <label for="fDate">Date</label><input id="fDate" type="date">
+          <p id="fErr" class="err" role="alert"></p>
+          <div class="row">
+            <button class="btn" id="fSubmit">Add food</button>
+            <button type="button" class="btn ghost" id="fCancel" hidden>Cancel edit</button>
+          </div>
+        </form>
+      </div>
+      <div class="card">
+        <h2>Entries <span id="entryTotal" class="muted"></span></h2>
+        <label class="sr" for="entrySearch">Search entries by name</label>
+        <input id="entrySearch" type="search" placeholder="Search entries (all dates)" autocomplete="off">
+        <ul id="entryList" class="list"></ul>
+      </div>
+    </section>
+
+
+    <!-- MENU -->
+    <section id="menu" class="view" hidden aria-labelledby="title">
+      <div class="card">
+        <div class="prow"><span>🔥 Today</span><span id="mSum" class="muted"></span></div>
+        <label class="sr" for="mSearch">Search foods</label>
+        <input id="mSearch" type="search" placeholder="Search foods (tea, biryani, dosa...)" autocomplete="off">
+        <label class="chk" style="margin-top:10px"><input type="checkbox" id="mSave"> Save as a quick-add button</label>
+        <p class="note"><span id="mCount"></span> · Tap a food to add it to today's list.</p>
+      </div>
+      <div id="mGrid" class="mgrid"></div>
+    </section>
+
+    <!-- HISTORY -->
+    <section id="history" class="view" hidden aria-labelledby="title">
+      <div class="datenav">
+        <button class="icon-btn" data-d="-1" aria-label="Previous day">‹</button>
+        <input type="date" data-sel aria-label="Selected date">
+        <button class="icon-btn" data-d="1" aria-label="Next day">›</button>
+        <button class="chip" data-d="0">Today</button>
+      </div>
+      <div class="card">
+        <h2 id="hDay"></h2>
+        <p><b id="hCal"></b> <span class="muted" id="hGoal"></span> <span id="hBadge" class="badge"></span></p>
+        <p class="muted" id="hProt"></p>
+      </div>
+      <div class="card">
+        <h2>Last 7 days</h2>
+        <div id="plot" class="plot" role="img" aria-label="Bar chart of calories for the last 7 days"></div>
+        <div id="plotLbl" class="labels"></div>
+        <p class="muted">Dashed line = daily goal. Average: <b id="avg"></b></p>
+      </div>
+      <div class="card">
+        <h2>Daily goal check</h2>
+        <ul id="weekList" class="list"></ul>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section id="settings" class="view" hidden aria-labelledby="title">
+      <div class="card">
+        <h2>Daily goals</h2>
+        <form id="goalForm" novalidate>
+          <div class="grid2">
+            <div><label for="gCal">Calories (kcal)</label><input id="gCal" type="number" min="1" step="any"></div>
+            <div><label for="gP">Protein (g)</label><input id="gP" type="number" min="1" step="any"></div>
+          </div>
+          <label for="gTheme">Theme</label>
+          <select id="gTheme">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+          <p id="gErr" class="err" role="alert"></p>
+          <button class="btn">Save settings</button>
+        </form>
+      </div>
+      <div class="card">
+        <h2>Your data</h2>
+        <p class="muted">Everything is stored only in this browser. Export a backup file to move it elsewhere.</p>
+        <div class="row wrap">
+          <button class="btn" id="exportBtn">Export data</button>
+          <button class="btn ghost" id="importBtn">Import data</button>
+          <input id="importFile" type="file" accept="application/json,.json" hidden>
+          <button class="btn danger" id="clearBtn">Clear all data</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="dlg">
+    <form method="dialog">
+      <p id="dlgMsg"></p>
+      <div class="row end"><button class="btn ghost" value="cancel">Cancel</button><button class="btn danger" id="dlgOk"
+          value="ok">Delete</button></div>
+    </form>
+  </dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="foods-data.js" charset="utf-8"></script>
+  <script src="javascipt.js"></script>
+</body>
+
+</html>
